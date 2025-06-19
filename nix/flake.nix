@@ -20,13 +20,19 @@
         pkgs.kotlin
         pkgs.alacritty
         pkgs.mkalias
-        pkgs.flutter
+        #pkgs.fvm
+        pkgs.alt-tab-macos
+        pkgs.localsend
+        pkgs.inetutils
+        pkgs.wget
+        pkgs.scrcpy
       ];
-      
+
       fonts.packages = [
         pkgs.nerd-fonts.jetbrains-mono
       ];
 
+      security.pam.services.sudo_local.touchIdAuth = true;
       system.activationScripts.applications.text = let
         env = pkgs.buildEnv {
           name = "system-applications";
@@ -60,6 +66,12 @@
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
 
+      homebrew.enable = true;
+      homebrew.casks = [
+        "android-commandlinetools"
+        "jetbrains-toolbox"
+      ];
+
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
@@ -69,6 +81,8 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+
+      #nixpkgs.config.allowUnfree = true;
     };
   in
   {
