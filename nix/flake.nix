@@ -31,6 +31,7 @@
         pkgs.tmux
         pkgs.neovim
         pkgs.ripgrep
+        pkgs.tree
       ];
 
       fonts.packages = [
