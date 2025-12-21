@@ -4,14 +4,17 @@
   # https://github.com/tadfisher/android-nixpkgs?tab=readme-ov-file
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
     nix-darwin.url = "github:LnL7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
   let
     configuration = { pkgs, config, ... }: {
+      #services.nix-daemon.enable = true;
+      nix.enable = true;
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [ 
@@ -20,12 +23,14 @@
         pkgs.kotlin
         pkgs.alacritty
         pkgs.mkalias
-        #pkgs.fvm
         pkgs.alt-tab-macos
         pkgs.localsend
         pkgs.inetutils
         pkgs.wget
         pkgs.scrcpy
+        pkgs.tmux
+        pkgs.neovim
+        pkgs.ripgrep
       ];
 
       fonts.packages = [
@@ -54,6 +59,7 @@
             '';
 
       system.defaults = {
+        dock.orientation = "bottom";
         dock.autohide = true;
         finder.FXPreferredViewStyle = "clmv";
         loginwindow.GuestEnabled = false;
@@ -70,6 +76,16 @@
       homebrew.casks = [
         "android-commandlinetools"
         "jetbrains-toolbox"
+        "monitorcontrol"
+        "ghostty"
+      ];
+
+      homebrew.taps = [
+        "leoafarias/fvm"
+      ];
+
+      homebrew.brews = [
+        "fvm"
       ];
 
       # Set Git commit hash for darwin-version.
@@ -82,14 +98,16 @@
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
 
-      #nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowUnfree = true;
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."air15" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [
+        configuration
+      ];
     };
 
     darwinPackages = self.darwinConfigurations."air15".pkgs;

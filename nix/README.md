@@ -2,5 +2,5 @@
 
 ## usage
 ```
-nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.config/nix#air15
+sudo nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.config/nix#air15
 ```
