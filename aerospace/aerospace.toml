@@ -20,26 +20,21 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Padding around windows when in accordion mode
+accordion-padding = 80
+
 [key-mapping]
     preset = 'qwerty'
 
 [gaps]
-    inner.horizontal = 8
-    inner.vertical =   8
-    outer.left =       4
-    outer.bottom =     4
-    outer.top =        4
-    outer.right =      4
+    inner.horizontal = 13
+    inner.vertical =   13
+    outer.left =       9
+    outer.bottom =     9
+    outer.top =        9
+    outer.right =      9
 
 [mode.main.binding]
-    # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
-    alt-enter = '''exec-and-forget osascript -e '
-    tell application "Terminal"
-        do script
-        activate
-    end tell'
-    '''
-
     # i3 wraps focus by default
     alt-h =         'focus --boundaries-action wrap-around-the-workspace left'
     alt-j =         'focus --boundaries-action wrap-around-the-workspace down'
@@ -104,7 +99,9 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     alt-r = 'mode resize'
     alt-equal = 'resize smart +50'
     alt-minus = 'resize smart -50'
-    
+    alt-shift-equal = 'resize smart +250'
+    alt-shift-minus = 'resize smart -250'
+
     # Application launchers
     alt-t = 'exec-and-forget open -n /Applications/Ghostty.app'
 
