@@ -36,74 +36,74 @@ accordion-padding = 80
 
 [mode.main.binding]
     # i3 wraps focus by default
-    alt-h =         'focus --boundaries-action wrap-around-the-workspace left'
-    alt-j =         'focus --boundaries-action wrap-around-the-workspace down'
-    alt-k =         'focus --boundaries-action wrap-around-the-workspace up'
-    alt-l = 	    'focus --boundaries-action wrap-around-the-workspace right'
+    alt-cmd-ctrl-h =         'focus --boundaries-action wrap-around-the-workspace left'
+    alt-cmd-ctrl-j =         'focus --boundaries-action wrap-around-the-workspace down'
+    alt-cmd-ctrl-k =         'focus --boundaries-action wrap-around-the-workspace up'
+    alt-cmd-ctrl-l = 	    'focus --boundaries-action wrap-around-the-workspace right'
 
-    alt-shift-h = 'join-with left'
-    alt-shift-j = 'join-with down'
-    alt-shift-k = 'join-with up'
-    alt-shift-l = 'join-with right'
+    alt-cmd-ctrl-shift-h = 'join-with left'
+    alt-cmd-ctrl-shift-j = 'join-with down'
+    alt-cmd-ctrl-shift-k = 'join-with up'
+    alt-cmd-ctrl-shift-l = 'join-with right'
 
-    alt-left = 'move left'
-    alt-down = 'move down'
-    alt-up = 'move up'
-    alt-right = 'move right'
+    alt-cmd-ctrl-left = 'move left'
+    alt-cmd-ctrl-down = 'move down'
+    alt-cmd-ctrl-up = 'move up'
+    alt-cmd-ctrl-right = 'move right'
 
     # Consider using 'join-with' command as a 'split' replacement if you want to enable
     # normalizations
-    alt-slash = 'layout tiles horizontal vertical'
-    alt-comma = 'layout accordion horizontal vertical'
+    alt-cmd-ctrl-slash = 'layout tiles horizontal vertical'
+    alt-cmd-ctrl-comma = 'layout accordion horizontal vertical'
 
-    alt-f = 'fullscreen'
+    alt-cmd-ctrl-f = 'fullscreen'
 
-    alt-s = 'layout v_accordion' # 'layout stacking' in i3
-    alt-w = 'layout h_accordion' # 'layout tabbed' in i3
-    alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+    alt-cmd-ctrl-s = 'layout v_accordion' # 'layout stacking' in i3
+    alt-cmd-ctrl-w = 'layout h_accordion' # 'layout tabbed' in i3
+    alt-cmd-ctrl-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
-    alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+    alt-cmd-ctrl-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 
     # Not supported, because this command is redundant in AeroSpace mental model.
     # See: https://nikitabobko.github.io/AeroSpace/guide#floating-windows
-    #alt-space = 'focus toggle_tiling_floating'
+    #alt-cmd-ctrl-space = 'focus toggle_tiling_floating'
 
     # `focus parent`/`focus child` are not yet supported, and it's not clear whether they
     # should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
-    # alt-a = 'focus parent'
+    # alt-cmd-ctrl-a = 'focus parent'
 
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
-    alt-0 = 'workspace 10'
+    alt-cmd-ctrl-1 = 'workspace 1'
+    alt-cmd-ctrl-2 = 'workspace 2'
+    alt-cmd-ctrl-3 = 'workspace 3'
+    alt-cmd-ctrl-4 = 'workspace 4'
+    alt-cmd-ctrl-5 = 'workspace 5'
+    alt-cmd-ctrl-6 = 'workspace 6'
+    alt-cmd-ctrl-7 = 'workspace 7'
+    alt-cmd-ctrl-8 = 'workspace 8'
+    alt-cmd-ctrl-9 = 'workspace 9'
+    alt-cmd-ctrl-0 = 'workspace 10'
 
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
-    alt-shift-0 = 'move-node-to-workspace 10'
+    alt-cmd-ctrl-shift-1 = 'move-node-to-workspace 1'
+    alt-cmd-ctrl-shift-2 = 'move-node-to-workspace 2'
+    alt-cmd-ctrl-shift-3 = 'move-node-to-workspace 3'
+    alt-cmd-ctrl-shift-4 = 'move-node-to-workspace 4'
+    alt-cmd-ctrl-shift-5 = 'move-node-to-workspace 5'
+    alt-cmd-ctrl-shift-6 = 'move-node-to-workspace 6'
+    alt-cmd-ctrl-shift-7 = 'move-node-to-workspace 7'
+    alt-cmd-ctrl-shift-8 = 'move-node-to-workspace 8'
+    alt-cmd-ctrl-shift-9 = 'move-node-to-workspace 9'
+    alt-cmd-ctrl-shift-0 = 'move-node-to-workspace 10'
 
-    alt-shift-c = 'reload-config'
+    alt-cmd-ctrl-shift-c = 'reload-config'
 
-    alt-r = 'mode resize'
-    alt-equal = 'resize smart +50'
-    alt-minus = 'resize smart -50'
-    alt-shift-equal = 'resize smart +250'
-    alt-shift-minus = 'resize smart -250'
+    alt-cmd-ctrl-r = 'mode resize'
+    alt-cmd-ctrl-equal = 'resize smart +50'
+    alt-cmd-ctrl-minus = 'resize smart -50'
+    alt-cmd-ctrl-shift-equal = 'resize smart +250'
+    alt-cmd-ctrl-shift-minus = 'resize smart -250'
 
     # Application launchers
-    alt-t = 'exec-and-forget open -n /Applications/Ghostty.app'
+    alt-cmd-ctrl-t = 'exec-and-forget open -n /Applications/Ghostty.app'
 
 [mode.resize.binding]
     h = 'resize width -50'
